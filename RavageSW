@@ -108,5 +108,6 @@ export default function Boutique() {
     </div>
   );
 }
-git clone https://github.com/ton-utilisateur/ma-boutique-en-ligne.git
+npm install
+npm start
 
