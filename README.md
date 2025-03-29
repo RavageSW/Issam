@@ -1,0 +1,112 @@
+git clone https://github.com/ton-utilisateur/ma-boutique-en-ligne.git
+import { useState } from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { ShoppingCart } from "lucide-react";
+
+const products = [
+  {
+    id: 1,
+    name: "Écouteurs Sans Fil",
+    price: "29€",
+    description: "Écouteurs Bluetooth avec réduction de bruit et autonomie longue durée.",
+    image: "https://journalmetro.com/wp-content/uploads/2023/06/1200-x-675-Metro-2023-06-01T131033.910.jpg?resize=1051%2C591"
+  },
+  {
+    id: 3,
+    name: "Coque de Protection Smartphone",
+    price: "15€",
+    description: "Coque ultra résistante avec coins renforcés pour une protection optimale.",
+    image: "https://www.cleanipedia.com/images/00d1hxgfwfa6/68HoF8A46M2Ae8J1wI8PIk/33b63cd19303753c68eb0ed54a0ab1ca/My5qcGc/944w-629h/como-tirar-mancha-de-caneta-da-capinha-do-celular.jpg"
+  },
+  {
+    id: 4,
+    name: "Lampe LED de Bureau",
+    price: "39€",
+    description: "Lampe LED avec luminosité réglable et port USB intégré.",
+    image: "https://meilleurtest.fr/wp-content/uploads/2022/08/lampe-led-pliable-bzbrlz.jpg"
+  },
+  {
+    id: 5,
+    name: "Aspirateur Robot Intelligent",
+    price: "199€",
+    description: "Aspirateur autonome avec navigation intelligente et mode silencieux.",
+    image: "https://devices4home.com/wp-content/uploads/2018/10/Robotic-vacuum-1.jpeg"
+  },
+  {
+    id: 6,
+    name: "Friteuse Sans Huile",
+    price: "89€",
+    description: "Friteuse à air chaud pour une cuisson saine sans huile.",
+    image: "https://lemagdusenior.ouest-france.fr/images/dossiers/2024-01/mini/friteuse-sans-huile-115444-1200-600.jpg"
+  },
+  {
+    id: 7,
+    name: "Montre Connectée",
+    price: "59€",
+    description: "Montre intelligente avec suivi d'activité et notifications.",
+    image: "https://image.freepik.com/photos-gratuite/femme-utilisant-montre-connectee-assistant-numerique_23-2149108000.jpg"
+  },
+  {
+    id: 8,
+    name: "Palette de Maquillage",
+    price: "25€",
+    description: "Palette complète avec fards à paupières et blush.",
+    image: "https://www.maquillage.com/wp-content/uploads/2022/10/palette-make-up-couleurs-1024x620.jpeg"
+  },
+  {
+    id: 9,
+    name: "Haltères de Musculation",
+    price: "49€",
+    description: "Paire d'haltères ajustables pour vos séances de sport.",
+    image: "https://www.decathlon.fr/media/857/8570096/classic_50d16a07cf824376b3f53084dc2d33ef.jpg"
+  },
+  {
+    id: 10,
+    name: "Tablette Tactile",
+    price: "199€",
+    description: "Tablette performante avec écran haute résolution.",
+    image: "https://www.darty.com/darty-et-vous/sites/default/files/thumbnails/image/illustration-tablette-tactile-possibilite.jpg"
+  },
+  {
+    id: 11,
+    name: "Livre de Développement Personnel",
+    price: "18€",
+    description: "Un guide pratique pour améliorer votre quotidien.",
+    image: "https://images-na.ssl-images-amazon.com/images/I/71g2ednj0JL.jpg"
+  }
+];
+
+export default function Boutique() {
+  const [cart, setCart] = useState([]);
+
+  const addToCart = (product) => {
+    setCart([...cart, product]);
+  };
+
+  return (
+    <div className="p-6">
+      <h1 className="text-3xl font-bold mb-4">Boutique en Ligne</h1>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        {products.map((product) => (
+          <Card key={product.id} className="p-4 shadow-lg rounded-xl">
+            <img src={product.image} alt={product.name} className="w-full h-40 object-cover rounded-md" />
+            <CardContent className="mt-4">
+              <h2 className="text-xl font-semibold">{product.name}</h2>
+              <p className="text-gray-600">{product.price}</p>
+              <p className="text-gray-500 text-sm">{product.description}</p>
+              <Button 
+                className="mt-2 w-full flex items-center justify-center" 
+                onClick={() => addToCart(product)}
+              >
+                <ShoppingCart className="mr-2" /> Ajouter au panier
+              </Button>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+    </div>
+  );
+}
+npm install
+npm start
